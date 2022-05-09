@@ -4,7 +4,7 @@
 \alias{module.info}
 \title{module.info}
 \usage{
-module.info(module = NULL, local = FALSE, md = NULL)
+module.info(module = NULL, local = FALSE, md = NULL, to = "stdout")
 }
 \arguments{
 \item{module}{Module to get info about}
@@ -12,6 +12,8 @@ module.info(module = NULL, local = FALSE, md = NULL)
 \item{local}{Include local info}
 
 \item{md}{Specify the root directory of OakVar modules}
+
+\item{to}{"print" to stdout / "return" to return}
 }
 \description{
 module.info

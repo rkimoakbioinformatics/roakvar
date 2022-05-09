@@ -476,11 +476,13 @@ module.update <- function(
 #' @param module Module to get info about
 #' @param local Include local info
 #' @param md Specify the root directory of OakVar modules
+#' @param to "print" to stdout / "return" to return
 #' @export
 module.info <- function(
   module=NULL,
   local=FALSE,
-  md=NULL
+  md=NULL,
+  to="stdout"
 ) {
   if (is.null(module) || module == "") {
     print("module is required. returning.")
@@ -490,7 +492,8 @@ module.info <- function(
     list(
       module=module,
       local=local,
-      md=md
+      md=md,
+      to=to
     )
   )
   return(ret)
@@ -510,7 +513,7 @@ module.installbase <- function(
   md=NULL
 ) {
   oakvar = reticulate::import("oakvar")
-  ret <- oakvar$cmd_admin$install_base(
+  ret <- oakvar$cmd_admin$fn_module_installbase(
     list(
       force=force,
       force_data=force_data,
