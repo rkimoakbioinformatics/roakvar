@@ -1,0 +1,9 @@
+.Rproj.user
+inst/doc
+test.R
+test.py
+tmp
+generate.py
+.DS_Store
+.Rbuildignore
+

@@ -1,0 +1,19 @@
+Package: roakvar
+Title: Genomic Variant Analysis Platform
+Version: 1.0.0.0000
+Authors@R: 
+    person("Ryangguk", "Kim", , "rkim@oakbioinformatics", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-8744-4979"))
+Description: roakvar is an R wrapper to OakVar, a genomic variant analysis platform.
+License: `use_mit_license()`
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports:
+    reticulate,
+    usethis
+Suggests: 
+    rmarkdown,
+    knitr
+VignetteBuilder: knitr
