@@ -1,14 +1,10 @@
-
-# roakvar
-
-<!-- badges: start -->
-<!-- badges: end -->
+## roakvar
 
 roakvar is an R wrapper for the Python-based genomic variant analysis platform, OakVar, bringing the full power of genomic variant analysis to the R environment.
 
 ## Installation
 
-You can install the development version of roakvar from [GitHub](https://github.com/rkimoakbioinformatics/roakvar) with:
+You can install the development version of roakvar from https://github.com/rkimoakbioinformatics/roakvar with:
 
 ``` r
 # install.packages("devtools")
