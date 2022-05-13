@@ -17,7 +17,7 @@ ov.module.update(
 
 \item{y}{Proceed without prompt}
 
-\item{strategy}{Dependency resolution strategy. "consensus" will attemp to resolve dependencies. "force" will install the highest available version. "skip" will skip modules with constraints.}
+\item{strategy}{Dependency resolution strategy. "consensus" will attempt to resolve dependencies. "force" will install the highest available version. "skip" will skip modules with constraints.}
 
 \item{install_pypi_dependency}{Try to install non-OakVar package dependency with pip}
 

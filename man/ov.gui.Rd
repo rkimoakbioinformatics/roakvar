@@ -30,7 +30,7 @@ ov.gui(
 
 \item{port}{Port number for OakVar graphical user interface}
 
-\item{noguest}{Diasbles guest mode}
+\item{noguest}{Disables guest mode}
 }
 \description{
 ov.gui

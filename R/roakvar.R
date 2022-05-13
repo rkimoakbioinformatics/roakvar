@@ -287,7 +287,7 @@ ov.report <- function(
 #' @param result Path to a OakVar result SQLite file
 #' @param webapp Name of OakVar webapp module to run
 #' @param port Port number for OakVar graphical user interface
-#' @param noguest Diasbles guest mode
+#' @param noguest Disables guest mode
 #' @export
 ov.gui <- function(
   servermode=FALSE,
@@ -441,7 +441,7 @@ ov.module.uninstall <- function(
 #'
 #' @param modules Modules to update.
 #' @param y Proceed without prompt
-#' @param strategy Dependency resolution strategy. "consensus" will attemp to resolve dependencies. "force" will install the highest available version. "skip" will skip modules with constraints.
+#' @param strategy Dependency resolution strategy. "consensus" will attempt to resolve dependencies. "force" will install the highest available version. "skip" will skip modules with constraints.
 #' @param install_pypi_dependency Try to install non-OakVar package dependency with pip
 #' @param md Specify the root directory of OakVar modules
 #' @export
