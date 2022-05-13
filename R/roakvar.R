@@ -1,4 +1,4 @@
-#' run
+#' ov.run
 #'
 #' Run a job
 #'
@@ -44,7 +44,7 @@
 #' @param mapper_name Mapper module name or mapper module directory
 #' @param postaggregators Postaggregators to run. Additionally, tagsampler, casecontrol, varmeta, and vcfinfo will automatically run depending on conditions.
 #' @export
-run <- function(
+ov.run <- function(
   inputs=NULL,
   annotators=list(),
   annotators_replace=list(),
@@ -124,7 +124,7 @@ run <- function(
     postaggregators = list(postaggregators)
   }
   oakvar = reticulate::import("oakvar")
-  ret <- oakvar$cmd_run$run(
+  ret <- oakvar$cmd_run$fn_run(
     list(
       inputs=inputs,
       annotators=annotators,
@@ -172,7 +172,7 @@ run <- function(
   return(ret)
 }
 
-#' report
+#' ov.report
 #'
 #' @param dbpath Path to aggregator output
 #' @param reporttypes report types
@@ -199,7 +199,7 @@ run <- function(
 #' @param package Use filters and report types in a package
 #' @param md Specify the root directory of OakVar modules (annotators, etc)
 #' @export
-report <- function(
+ov.report <- function(
   dbpath=NULL,
   reporttypes=list(),
   filterpath=NULL,
@@ -278,7 +278,7 @@ report <- function(
   return(ret)
 }
 
-#' gui
+#' ov.gui
 #'
 #' @param servermode Runs in multiuser mode
 #' @param headless do not open the OakVar web page
@@ -289,7 +289,7 @@ report <- function(
 #' @param port Port number for OakVar graphical user interface
 #' @param noguest Diasbles guest mode
 #' @export
-gui <- function(
+ov.gui <- function(
   servermode=FALSE,
   headless=FALSE,
   http_only=FALSE,
@@ -300,7 +300,7 @@ gui <- function(
   noguest=FALSE
 ) {
   oakvar = reticulate::import("oakvar")
-  ret <- oakvar$cmd_web$fn_gui(
+  ret <- oakvar$cmd_gui$fn_gui(
     list(
       servermode=servermode,
       headless=headless,
@@ -315,7 +315,7 @@ gui <- function(
   return(ret)
 }
 
-#' module.ls
+#' ov.module.ls
 #'
 #' @param pattern Regular expression for module names
 #' @param available Include available modules
@@ -326,9 +326,9 @@ gui <- function(
 #' @param raw_bytes Machine readable data sizes
 #' @param md Specify the root directory of OakVar modules
 #' @param fmt Output format. tabular or json
-#' @param stdout Print to stdout
+#' @param to stdout to print / return to return
 #' @export
-module.ls <- function(
+ov.module.ls <- function(
   pattern=".*",
   available=FALSE,
   types=list(),
@@ -338,7 +338,7 @@ module.ls <- function(
   raw_bytes=FALSE,
   md=NULL,
   fmt="tabular",
-  stdout=TRUE
+  to="stdout"
 ) {
   if (typeof(types) == "character") {
     types = list(types)
@@ -358,13 +358,13 @@ module.ls <- function(
       raw_bytes=raw_bytes,
       md=md,
       fmt=fmt,
-      stdout=stdout
+      to=to
     )
   )
   return(ret)
 }
 
-#' module.install
+#' ov.module.install
 #'
 #' Install modules
 #'
@@ -377,7 +377,7 @@ module.ls <- function(
 #' @param skip_data Skip installing data
 #' @param md Specify the root directory of OakVar modules
 #' @export
-module.install <- function(
+ov.module.install <- function(
   modules=NULL,
   force=FALSE,
   force_data=FALSE,
@@ -409,13 +409,13 @@ module.install <- function(
   return(ret)
 }
 
-#' module.uninstall
+#' ov.module.uninstall
 #'
 #' @param modules Modules to uninstall
 #' @param yes Proceed without prompt
 #' @param md Specify the root directory of OakVar modules
 #' @export
-module.uninstall <- function(
+ov.module.uninstall <- function(
   modules=NULL,
   yes=FALSE,
   md=NULL
@@ -437,7 +437,7 @@ module.uninstall <- function(
   return(ret)
 }
 
-#' module.update
+#' ov.module.update
 #'
 #' @param modules Modules to update.
 #' @param y Proceed without prompt
@@ -445,7 +445,7 @@ module.uninstall <- function(
 #' @param install_pypi_dependency Try to install non-OakVar package dependency with pip
 #' @param md Specify the root directory of OakVar modules
 #' @export
-module.update <- function(
+ov.module.update <- function(
   modules=NULL,
   y=FALSE,
   strategy="consensus",
@@ -471,14 +471,14 @@ module.update <- function(
   return(ret)
 }
 
-#' module.info
+#' ov.module.info
 #'
 #' @param module Module to get info about
 #' @param local Include local info
 #' @param md Specify the root directory of OakVar modules
 #' @param to "print" to stdout / "return" to return
 #' @export
-module.info <- function(
+ov.module.info <- function(
   module=NULL,
   local=FALSE,
   md=NULL,
@@ -499,14 +499,14 @@ module.info <- function(
   return(ret)
 }
 
-#' module.installbase
+#' ov.module.installbase
 #'
 #' @param force Overwrite existing modules
 #' @param force_data Download data even if latest data is already installed
 #' @param install_pypi_dependency Try to install non-OakVar package dependency with pip
 #' @param md Specify the root directory of OakVar modules
 #' @export
-module.installbase <- function(
+ov.module.installbase <- function(
   force=FALSE,
   force_data=FALSE,
   install_pypi_dependency=TRUE,
@@ -524,11 +524,11 @@ module.installbase <- function(
   return(ret)
 }
 
-#' config.md
+#' ov.config.md
 #'
 #' @param directory sets modules directory.
 #' @export
-config.md <- function(
+ov.config.md <- function(
   directory=NULL
 ) {
   oakvar = reticulate::import("oakvar")
@@ -540,12 +540,12 @@ config.md <- function(
   return(ret)
 }
 
-#' config.system
+#' ov.config.system
 #'
 #' @param fmt Format of output. json or yaml.
 #' @param to "stdout" to print. "return" to return
 #' @export
-config.system <- function(
+ov.config.system <- function(
   fmt="yaml",
   to="stdout"
 ) {
@@ -559,12 +559,12 @@ config.system <- function(
   return(ret)
 }
 
-#' config.cravat
+#' ov.config.cravat
 #'
 #' @param fmt Format of output. json or yaml.
 #' @param to "stdout" to print. "return" to return
 #' @export
-config.cravat <- function(
+ov.config.cravat <- function(
   fmt="yaml",
   to="stdout"
 ) {
@@ -578,11 +578,11 @@ config.cravat <- function(
   return(ret)
 }
 
-#' new.exampleinput
+#' ov.new.exampleinput
 #'
 #' @param directory Directory to make the example input file in
 #' @export
-new.exampleinput <- function(
+ov.new.exampleinput <- function(
   directory="."
 ) {
   oakvar = reticulate::import("oakvar")
@@ -594,12 +594,12 @@ new.exampleinput <- function(
   return(ret)
 }
 
-#' new.annotator
+#' ov.new.annotator
 #'
 #' @param annotator_name Annotator name
 #' @param md Specify the root directory of OakVar modules
 #' @export
-new.annotator <- function(
+ov.new.annotator <- function(
   annotator_name="annotator",
   md=NULL
 ) {
@@ -613,7 +613,7 @@ new.annotator <- function(
   return(ret)
 }
 
-#' store.publish
+#' ov.store.publish
 #'
 #' @param module module to publish
 #' @param data publishes module with data.
@@ -624,7 +624,7 @@ new.annotator <- function(
 #' @param overwrite overwrites a published module/version
 #' @param md Specify the root directory of OakVar modules
 #' @export
-store.publish <- function(
+ov.store.publish <- function(
   module=NULL,
   data=FALSE,
   code=FALSE,
@@ -653,12 +653,12 @@ store.publish <- function(
   return(ret)
 }
 
-#' store.newaccount
+#' ov.store.newaccount
 #'
 #' @param username use your email as your username.
 #' @param password this is your password.
 #' @export
-store.newaccount <- function(
+ov.store.newaccount <- function(
   username=NULL,
   password=NULL
 ) {
@@ -678,13 +678,13 @@ store.newaccount <- function(
   return(ret)
 }
 
-#' store.changepassword
+#' ov.store.changepassword
 #'
 #' @param username username
 #' @param current_password current password
 #' @param new_password new password
 #' @export
-store.changepassword <- function(
+ov.store.changepassword <- function(
   username=NULL,
   current_password=NULL,
   new_password=NULL
@@ -709,11 +709,11 @@ store.changepassword <- function(
   return(ret)
 }
 
-#' store.resetpassword
+#' ov.store.resetpassword
 #'
 #' @param username username
 #' @export
-store.resetpassword <- function(
+ov.store.resetpassword <- function(
   username=NULL
 ) {
   if (is.null(username) || username == "") {
@@ -728,11 +728,11 @@ store.resetpassword <- function(
   return(ret)
 }
 
-#' store.verifyemail
+#' ov.store.verifyemail
 #'
 #' @param username username
 #' @export
-store.verifyemail <- function(
+ov.store.verifyemail <- function(
   username=NULL
 ) {
   if (is.null(username) || username == "") {
@@ -747,12 +747,12 @@ store.verifyemail <- function(
   return(ret)
 }
 
-#' store.checklogin
+#' ov.store.checklogin
 #'
 #' @param username username
 #' @param password password
 #' @export
-store.checklogin <- function(
+ov.store.checklogin <- function(
   username=NULL,
   password=NULL
 ) {
@@ -772,16 +772,18 @@ store.checklogin <- function(
   return(ret)
 }
 
-#' util.test
+#' ov.util.test
 #'
 #' @param rundir Directory for output
 #' @param modules Name of module(s) to test. (e.g. gnomad)
 #' @param mod_types Type of module(s) to test (e.g. annotators)
+#' @param to stdout to print / return to return
 #' @export
-util.test <- function(
+ov.util.test <- function(
   rundir=NULL,
   modules=NULL,
-  mod_types=NULL
+  mod_types=NULL,
+  to="stdout"
 ) {
   if (typeof(modules) == "character") {
     modules = list(modules)
@@ -794,19 +796,20 @@ util.test <- function(
     list(
       rundir=rundir,
       modules=modules,
-      mod_types=mod_types
+      mod_types=mod_types,
+      to=to
     )
   )
   return(ret)
 }
 
-#' util.updateresult
+#' ov.util.updateresult
 #'
 #' @param dbpath path to a result db file or a directory
 #' @param recursive recursive operation
 #' @param backup backup original copy with .bak extension
 #' @export
-util.updateresult <- function(
+ov.util.updateresult <- function(
   dbpath=NULL,
   recursive=FALSE,
   backup=FALSE
@@ -825,12 +828,12 @@ util.updateresult <- function(
   return(ret)
 }
 
-#' util.sendgui
+#' ov.util.sendgui
 #'
 #' @param path Path to result database
 #' @param user User who will own the job. Defaults to single user default user.
 #' @export
-util.sendgui <- function(
+ov.util.sendgui <- function(
   path=NULL,
   user="default"
 ) {
@@ -847,12 +850,12 @@ util.sendgui <- function(
   return(ret)
 }
 
-#' util.mergesqlite
+#' ov.util.mergesqlite
 #'
 #' @param path Path to result database
 #' @param outpath Output SQLite file path
 #' @export
-util.mergesqlite <- function(
+ov.util.mergesqlite <- function(
   path=NULL,
   outpath=NULL
 ) {
@@ -875,7 +878,7 @@ util.mergesqlite <- function(
   return(ret)
 }
 
-#' util.filtersqlite
+#' ov.util.filtersqlite
 #'
 #' @param paths Path to result database
 #' @param out Output SQLite file folder
@@ -885,7 +888,7 @@ util.mergesqlite <- function(
 #' @param includesample Sample IDs to include
 #' @param excludesample Sample IDs to exclude
 #' @export
-util.filtersqlite <- function(
+ov.util.filtersqlite <- function(
   paths=NULL,
   out=".",
   suffix="filtered",
@@ -921,13 +924,13 @@ util.filtersqlite <- function(
   return(ret)
 }
 
-#' util.showsqliteinfo
+#' ov.util.showsqliteinfo
 #'
 #' @param paths SQLite result file paths
 #' @param fmt Output format. text / json / yaml
 #' @param to Output to. stdout / return
 #' @export
-util.showsqliteinfo <- function(
+ov.util.showsqliteinfo <- function(
   paths=NULL,
   fmt="text",
   to="stdout"
@@ -949,11 +952,11 @@ util.showsqliteinfo <- function(
   return(ret)
 }
 
-#' version
+#' ov.version
 #'
 #' @param to "stdout" to print. "return" to return
 #' @export
-version <- function(
+ov.version <- function(
   to="stdout"
 ) {
   oakvar = reticulate::import("oakvar")
@@ -965,10 +968,10 @@ version <- function(
   return(ret)
 }
 
-#' feedback
+#' ov.feedback
 #'
 #' @export
-feedback <- function(
+ov.feedback <- function(
   help="==SUPPRESS=="
 ) {
   oakvar = reticulate::import("oakvar")
