@@ -5,7 +5,7 @@ Authors@R:
     person("Ryangguk", "Kim", , "rkim@oakbioinformatics", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-8744-4979"))
 Description: roakvar is an R wrapper to OakVar, a genomic variant analysis platform.
-License: `use_mit_license()`
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)

@@ -972,12 +972,10 @@ ov.version <- function(
 #'
 #' @export
 ov.feedback <- function(
-  help="==SUPPRESS=="
 ) {
   oakvar = reticulate::import("oakvar")
   ret <- oakvar$cmd_admin$fn_feedback(
     list(
-      help=help
     )
   )
   return(ret)

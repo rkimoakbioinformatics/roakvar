@@ -4,7 +4,7 @@
 \alias{ov.feedback}
 \title{ov.feedback}
 \usage{
-ov.feedback(help = "==SUPPRESS==")
+ov.feedback()
 }
 \description{
 ov.feedback
