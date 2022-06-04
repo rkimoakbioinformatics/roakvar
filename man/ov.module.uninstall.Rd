@@ -4,7 +4,7 @@
 \alias{ov.module.uninstall}
 \title{ov.module.uninstall}
 \usage{
-ov.module.uninstall(modules = NULL, yes = FALSE, md = NULL)
+ov.module.uninstall(modules = NULL, yes = FALSE, md = NULL, quiet = TRUE)
 }
 \arguments{
 \item{modules}{Modules to uninstall}
@@ -12,7 +12,18 @@ ov.module.uninstall(modules = NULL, yes = FALSE, md = NULL)
 \item{yes}{Proceed without prompt}
 
 \item{md}{Specify the root directory of OakVar modules}
+
+\item{quiet}{Run quietly}
+}
+\value{
+A boolean. TRUE if successful, FALSE if not
 }
 \description{
 ov.module.uninstall
+}
+\examples{
+# Uninstall the ClinVar module
+ov.module.uninstall(modules="clinvar")# Uninstall the ClinVar and the COSMIC modules
+ov.module.uninstall(modules=("clinvar", "cosmic")
+
 }

@@ -10,11 +10,12 @@ ov.module.ls(
   types = list(),
   include_hidden = FALSE,
   tags = list(),
-  quiet = FALSE,
+  nameonly = FALSE,
   raw_bytes = FALSE,
   md = NULL,
-  fmt = "tabular",
-  to = "stdout"
+  fmt = "json",
+  to = "return",
+  quiet = TRUE
 )
 }
 \arguments{
@@ -28,7 +29,7 @@ ov.module.ls(
 
 \item{tags}{Only list modules of given tag(s)}
 
-\item{quiet}{Only list module names}
+\item{nameonly}{Only list module names}
 
 \item{raw_bytes}{Machine readable data sizes}
 
@@ -37,7 +38,21 @@ ov.module.ls(
 \item{fmt}{Output format. tabular or json}
 
 \item{to}{stdout to print / return to return}
+
+\item{quiet}{Run quietly}
+}
+\value{
+A named list. List of modules
 }
 \description{
-ov.module.ls
+lists modules.
+}
+\examples{
+# Get the list of all installed modules
+ov.module.ls()
+# Get the list of all available modules
+ov.module.ls(available=TRUE)
+# Get the list of all available modules of the type "converter"
+ov.module.ls(available=TRUE, types="converter")
+
 }

@@ -4,7 +4,14 @@
 \alias{ov.module.info}
 \title{ov.module.info}
 \usage{
-ov.module.info(module = NULL, local = FALSE, md = NULL, to = "stdout")
+ov.module.info(
+  module = NULL,
+  local = FALSE,
+  md = NULL,
+  fmt = "json",
+  to = "return",
+  quiet = TRUE
+)
 }
 \arguments{
 \item{module}{Module to get info about}
@@ -13,8 +20,20 @@ ov.module.info(module = NULL, local = FALSE, md = NULL, to = "stdout")
 
 \item{md}{Specify the root directory of OakVar modules}
 
-\item{to}{"print" to stdout / "return" to return}
+\item{fmt}{format of module information data. json or yaml}
+
+\item{to}{"stdout" to stdout / "return" to return}
+
+\item{quiet}{Run quietly}
+}
+\value{
+A named list. Information of the queried module
 }
 \description{
 ov.module.info
+}
+\examples{
+# Get the information of the ClinVar module
+ov.module.info(module="clinvar")
+
 }

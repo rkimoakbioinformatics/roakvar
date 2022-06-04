@@ -29,6 +29,15 @@ ov.util.filtersqlite(
 
 \item{excludesample}{Sample IDs to exclude}
 }
+\value{
+A boolean. TRUE if successful, FALSE if not
+}
 \description{
 ov.util.filtersqlite
+}
+\examples{
+# Filter an analysis result file with an SQL filter set
+ov.util.filtersqlite(paths="example.sqlite", filtersql='base__so=="MIS" and gnomad__af>0.01')# Filter two analysis result files with a filter definition file
+ov.util.filtersqlite(paths=list("example1.sqlite", "example2.sqlite"), filterpath="filter.json")
+
 }

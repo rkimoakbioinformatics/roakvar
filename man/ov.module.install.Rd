@@ -12,7 +12,9 @@ ov.module.install(
   skip_dependencies = FALSE,
   private = FALSE,
   skip_data = FALSE,
-  md = NULL
+  md = NULL,
+  to = "return",
+  quiet = TRUE
 )
 }
 \arguments{
@@ -31,7 +33,23 @@ ov.module.install(
 \item{skip_data}{Skip installing data}
 
 \item{md}{Specify the root directory of OakVar modules}
+
+\item{to}{'stdout' to print. 'return' to return}
+
+\item{quiet}{suppress stdout output}
+}
+\value{
+A boolean. TRUE if successful, FALSE if not
 }
 \description{
-Install modules
+Installs OakVar modules.
+}
+\examples{
+# Install the ClinVar module
+ov.module.install(modules="clinvar")
+# Install the ClinVar and the COSMIC modules
+ov.module.install(modules=list("clinvar", "cosmic")
+# Re-install the ClinVar module overwriting the already installed copy
+ov.module.install(modules="clinvar", force=TRUE)
+
 }

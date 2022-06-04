@@ -7,8 +7,8 @@
 ov.module.installbase(
   force = FALSE,
   force_data = FALSE,
-  install_pypi_dependency = TRUE,
-  md = NULL
+  md = NULL,
+  quiet = TRUE
 )
 }
 \arguments{
@@ -16,10 +16,18 @@ ov.module.installbase(
 
 \item{force_data}{Download data even if latest data is already installed}
 
-\item{install_pypi_dependency}{Try to install non-OakVar package dependency with pip}
-
 \item{md}{Specify the root directory of OakVar modules}
+
+\item{quiet}{suppress stdout output}
+}
+\value{
+A boolean. TRUE if successful, FALSE if not
 }
 \description{
-ov.module.installbase
+installs base modules.
+}
+\examples{
+# Install OakVar system modules
+ov.module.installbase()
+
 }

@@ -7,7 +7,8 @@
 ov.store.changepassword(
   username = NULL,
   current_password = NULL,
-  new_password = NULL
+  new_password = NULL,
+  quiet = TRUE
 )
 }
 \arguments{
@@ -16,7 +17,17 @@ ov.store.changepassword(
 \item{current_password}{current password}
 
 \item{new_password}{new password}
+
+\item{quiet}{Run quietly}
+}
+\value{
+A string. Response from the store server
 }
 \description{
 ov.store.changepassword
+}
+\examples{
+# Change the password of a store account
+ov.store.changepassword(username="user1", current_password="password", new_password="newpassword")
+
 }

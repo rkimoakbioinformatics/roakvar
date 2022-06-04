@@ -4,11 +4,21 @@
 \alias{ov.store.resetpassword}
 \title{ov.store.resetpassword}
 \usage{
-ov.store.resetpassword(username = NULL)
+ov.store.resetpassword(quiet = TRUE, username = NULL)
 }
 \arguments{
+\item{quiet}{Run quietly}
+
 \item{username}{username}
+}
+\value{
+A boolean. A boolean. TRUE if successful, FALSE if not
 }
 \description{
 ov.store.resetpassword
+}
+\examples{
+# Ask the store to send an email to reset the password of a store account
+ov.store.resetpassword(username="user1")
+
 }

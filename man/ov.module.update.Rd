@@ -8,8 +8,8 @@ ov.module.update(
   modules = NULL,
   y = FALSE,
   strategy = "consensus",
-  install_pypi_dependency = TRUE,
-  md = NULL
+  md = NULL,
+  quiet = TRUE
 )
 }
 \arguments{
@@ -19,10 +19,20 @@ ov.module.update(
 
 \item{strategy}{Dependency resolution strategy. "consensus" will attempt to resolve dependencies. "force" will install the highest available version. "skip" will skip modules with constraints.}
 
-\item{install_pypi_dependency}{Try to install non-OakVar package dependency with pip}
-
 \item{md}{Specify the root directory of OakVar modules}
+
+\item{quiet}{suppress stodout output}
+}
+\value{
+A boolean. TRUE if successful, FALSE if not
 }
 \description{
-ov.module.update
+updates modules.
+}
+\examples{
+# Update the ClinVar module
+ov.module.update(modules="clinvar")
+# Update all the installed modules
+ov.module.update()
+
 }

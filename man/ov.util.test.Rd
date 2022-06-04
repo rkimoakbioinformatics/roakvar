@@ -4,7 +4,13 @@
 \alias{ov.util.test}
 \title{ov.util.test}
 \usage{
-ov.util.test(rundir = NULL, modules = NULL, mod_types = NULL, to = "stdout")
+ov.util.test(
+  rundir = NULL,
+  modules = NULL,
+  mod_types = NULL,
+  to = "return",
+  quiet = TRUE
+)
 }
 \arguments{
 \item{rundir}{Directory for output}
@@ -14,7 +20,19 @@ ov.util.test(rundir = NULL, modules = NULL, mod_types = NULL, to = "stdout")
 \item{mod_types}{Type of module(s) to test (e.g. annotators)}
 
 \item{to}{stdout to print / return to return}
+
+\item{quiet}{Run quietly}
+}
+\value{
+A named list. Field result is a named list showing the test result for each module. Fields num_passed and num_failed show the number of passed and failed modules.
 }
 \description{
-ov.util.test
+Test modules
+}
+\examples{
+# Test the ClinVar module
+ov.util.test(modules="clinvar")
+# Test the ClinVar and the COSMIC modules
+ov.util.test(modules=list("clinvar", "cosmic"))
+
 }

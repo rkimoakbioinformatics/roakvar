@@ -4,11 +4,21 @@
 \alias{ov.store.verifyemail}
 \title{ov.store.verifyemail}
 \usage{
-ov.store.verifyemail(username = NULL)
+ov.store.verifyemail(username = NULL, quiet = TRUE)
 }
 \arguments{
 \item{username}{username}
+
+\item{quiet}{Run quietly}
+}
+\value{
+\code{NULL}
 }
 \description{
 ov.store.verifyemail
+}
+\examples{
+# Ask the store to send an email to verify the email of a user account
+ov.store.verifyemail(username="user1")
+
 }

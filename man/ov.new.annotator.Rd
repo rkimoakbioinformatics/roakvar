@@ -4,13 +4,23 @@
 \alias{ov.new.annotator}
 \title{ov.new.annotator}
 \usage{
-ov.new.annotator(annotator_name = "annotator", md = NULL)
+ov.new.annotator(annotator_name = "exampleannotator", md = NULL, quiet = TRUE)
 }
 \arguments{
 \item{annotator_name}{Annotator name}
 
 \item{md}{Specify the root directory of OakVar modules}
+
+\item{quiet}{No print to stdout}
+}
+\value{
+A string. Location of the new annotator module
 }
 \description{
 ov.new.annotator
+}
+\examples{
+# Create an annotator template at the OakVar modules directory/annotators/annotatortest
+ov.new.annotator(annotator_name="annotatortest")
+
 }

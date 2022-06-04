@@ -12,7 +12,8 @@ ov.store.publish(
   password = NULL,
   force_yes = FALSE,
   overwrite = FALSE,
-  md = NULL
+  md = NULL,
+  quiet = TRUE
 )
 }
 \arguments{
@@ -31,7 +32,17 @@ ov.store.publish(
 \item{overwrite}{overwrites a published module/version}
 
 \item{md}{Specify the root directory of OakVar modules}
+
+\item{quiet}{Run quietly}
+}
+\value{
+A boolean. A boolean. TRUE if successful, FALSE if not
 }
 \description{
 ov.store.publish
+}
+\examples{
+# Publish "customannot" module to the store
+ov.store.publish(module="customannot", user="user1", password="password")
+
 }

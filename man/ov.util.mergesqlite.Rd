@@ -11,6 +11,14 @@ ov.util.mergesqlite(path = NULL, outpath = NULL)
 
 \item{outpath}{Output SQLite file path}
 }
+\value{
+A boolean. TRUE if successful, FALSE if not
+}
 \description{
 ov.util.mergesqlite
+}
+\examples{
+# Merge two OakVar analysis result files into one SQLite file
+ov.util.mergesqlite(path=list("example1.sqlite", "example2.sqlite"), outpath="merged.sqlite")
+
 }

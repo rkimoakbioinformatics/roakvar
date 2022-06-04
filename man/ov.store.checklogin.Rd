@@ -4,13 +4,23 @@
 \alias{ov.store.checklogin}
 \title{ov.store.checklogin}
 \usage{
-ov.store.checklogin(username = NULL, password = NULL)
+ov.store.checklogin(username = NULL, password = NULL, quiet = TRUE)
 }
 \arguments{
 \item{username}{username}
 
 \item{password}{password}
+
+\item{quiet}{Run quietly}
+}
+\value{
+A boolean. A boolean. TRUE if successful, FALSE if not
 }
 \description{
 ov.store.checklogin
+}
+\examples{
+# Check if the login information of a user is correct
+ov.store.checklogin(username="user1", password="password")
+
 }
