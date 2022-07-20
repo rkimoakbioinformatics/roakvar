@@ -1,6 +1,8 @@
-## Roakvar
+# Roakvar
 
 Roakvar is an R wrapper for the Python-based genomic variant analysis platform, OakVar, bringing the full power of genomic variant analysis to the R environment.
+
+Teaser video: https://www.youtube.com/watch?v=sEQh6J0QUL4
 
 ## Installation
 
