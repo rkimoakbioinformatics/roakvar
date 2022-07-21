@@ -24,8 +24,8 @@ pip install oakvar
 Annotate a VCF file with ClinVar and read the result into a data frame:
 
 ```r
-ov.module.install(modules=list("clinvar", "pandasreporter")) # install the ClinVar and pandas reporter modules.
-result = ov.run(inputs="input.vcf", annotators="clinvar", reports="pandas") # Do the analysis and get the result into a variable.
+module.install(modules=list("clinvar", "pandasreporter")) # install the ClinVar and pandas reporter modules.
+result = roakvar::run(inputs="input.vcf", annotators="clinvar", reports="pandas") # Do the analysis and get the result into a variable.
 df = result$pandas # Get the data frame.
 ```
 
@@ -34,19 +34,19 @@ These are basic examples which show you how to solve common problems:
 ``` r
 library(roakvar)
 # installs OakVar system modules.
-ov.module.installbase()
+module.installbase()
 # lists all downloadable OakVar modules.
-ov.module.ls(available=TRUE)
+module.ls(available=TRUE)
 # installs the ClinVar annotation module.
-ov.module.install("clinvar")
+module.install("clinvar")
 # installs the VCF format reporting module.
-ov.module.install("vcfreporter")
+module.install("vcfreporter")
 # creates an example variant file.
-ov.new.exampleinput()
+new.exampleinput()
 # runs an example analysis with ClinVar and generates a VCF file with annotated variants.
-ov.run(inputs=list("exampleinput"), annotators=list("clinvar"), reports=list("vcf"))
+run(inputs=list("exampleinput"), annotators=list("clinvar"), reports=list("vcf"))
 # views the analysis result on the default browser.
-ov.gui(result="exampleinput.sqlite")
+gui(result="exampleinput.sqlite")
 ```
 
-Roakvar's R functions correspond to OakVar's CLI commands one-to-one. See https://oakvar.readthedocs.io for OakVar CLI commands.
+Roakvar's R functions matches OakVar's CLI commands. See https://docs.oakvar.com for OakVar CLI commands.
